@@ -43,3 +43,35 @@ def stations_within_radius(stations, centre, r):
             stations_within_radius.append(station.name)
     
     return sorted_by_key(stations_within_radius,0)
+
+
+def rivers_with_station(stations):
+    """Task 1D (1)
+       This function takes in a list of stations
+       It returns a non-duplicate set of rivers associated with the list of stations
+    """
+
+    set_of_rivers_with_station = set()
+
+    for station in stations:
+        set_of_rivers_with_station.add(station.river)
+    
+    return sorted_by_key(set_of_rivers_with_station,0)
+
+def stations_by_river(stations):
+    """Task 1D (2)
+       This function takes in a list of stations
+       It returns a dictionary that maps river names to a list of station objects
+    """
+
+    dictionary_of_rivers_to_stations = {}
+
+    for station in stations:
+        # If this river is already in the dictionary, add the station to the list associated with the river
+        # If the river is new, add an new entry to the dictionary
+        if station.river in dictionary_of_rivers_to_stations:
+            dictionary_of_rivers_to_stations[station.river].append(station.name)
+        else:
+            dictionary_of_rivers_to_stations[station.river] = [station.name]
+    
+    return dictionary_of_rivers_to_stations
