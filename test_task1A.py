@@ -3,7 +3,7 @@ from Task1B import stations_by_distance
 from Task1C import stations_within_radius
 from Task1D import rivers_with_station
 from Task1D import stations_by_river
-
+from Task1E import rivers_by_station_number
 
 def test_task1B():
     """Test for 1B
@@ -53,3 +53,23 @@ def test_task1D():
         for target in stations:
             if stations == target.name:
                 assert target.river == "River Aire"
+
+def test_task1E():
+    """Tests for 1E
+        (1)Ensure that number of stations are greater than, or equal to, the specified number
+        (2)If the number is greater than specified, ensure the extra entries have the same number of stations as the Nth entry.
+    """
+
+    stations = build_station_list()
+    N = 9
+    riverlist = rivers_by_station_number(stations,N)
+    assert len(riverlist) >= N
+    if len(riverlist) > N:
+        for i in range(N,len(riverlist)):
+            assert riverlist[i][1] == riverlist[N][1]
+
+def test_task1F():
+    pass
+
+#not sure if the updated data got rid of all inconsistent typical ranges or the code has problems, will need to manually go through the data
+
