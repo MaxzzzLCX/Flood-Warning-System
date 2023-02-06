@@ -24,8 +24,10 @@ def test_task1C():
     stations = build_station_list()
     task1C_test_stations = stations_within_radius(stations,(52.2053, 0.1218),10)
     
-    # for station in task1C_test_stations:
-    #     assert
+    for station in task1C_test_stations:
+        for target in stations:
+            if station == target.name:
+                assert haversine(target.coord,(52.2053, 0.1218)) <= 10
 
 def test_task1D():
     """Test for 1D
@@ -34,7 +36,20 @@ def test_task1D():
     """
     
     stations = build_station_list()
-    task1D_test_stations = rivers_with_station(stations)
 
-    # for station in rivers_with_station:
-    #     assert station
+    task1D_test1_stations = rivers_with_station(stations)
+
+    for rivers in task1D_test1_stations:
+        found = False
+        for target in stations:
+            if target.river == rivers:
+                found = True
+        assert found == True
+
+
+    task1D_test2_stations = stations_by_river(stations)
+
+    for stations in task1D_test2_stations["River Aire"]:
+        for target in stations:
+            if stations == target.name:
+                assert target.river == "River Aire"
