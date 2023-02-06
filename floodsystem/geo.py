@@ -75,3 +75,24 @@ def stations_by_river(stations):
             dictionary_of_rivers_to_stations[station.river] = [station.name]
     
     return dictionary_of_rivers_to_stations
+
+#this part is done by Joe
+#oh god my code style is hideous
+def rivers_by_station_number(stations, N):
+    """Task 1E
+        This function determines the N rivers with the greatest number of monitoring stations
+        It returns a list of (river name, number of stations) tuples, sorted by the number of stations
+        in the case that there are more rivers with the same number of stations as the Nth entry, include these rivers in the list
+    """
+    def last(t):
+        return t[1]
+    river_name_by_station_number = []
+    dictionary_of_rivers_to_stations = stations_by_river(stations)
+    for river in dictionary_of_rivers_to_stations:
+        river_name_by_station_number.append((river, len(dictionary_of_rivers_to_stations[river])))
+    river_name_by_station_number = sorted(river_name_by_station_number, reverse = True, key = last)
+    final = 0
+    while final <= N or river_name_by_station_number[final][1] == river_name_by_station_number[N][1]:
+        final += 1
+
+    return river_name_by_station_number[:final]
