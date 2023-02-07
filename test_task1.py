@@ -13,9 +13,9 @@ def test_task1B():
     task1B_test_stations = stations_by_distance(stations,(52.2053,0.1218))
     assert len(stations) == len(task1B_test_stations)
 
-    x = task1B_test_stations[0]
+    x = task1B_test_stations[0][1]
     for station in task1B_test_stations:
-        assert station[1]<=x
+        assert station[1]>=x
         x = station[1]
 
 def test_task1C():
@@ -50,9 +50,9 @@ def test_task1D():
 
     task1D_test2_stations = stations_by_river(stations)
 
-    for stations in task1D_test2_stations["River Aire"]:
+    for station in task1D_test2_stations["River Aire"]:
         for target in stations:
-            if stations == target.name:
+            if station == target.name:
                 assert target.river == "River Aire"
 
 def test_task1E():
