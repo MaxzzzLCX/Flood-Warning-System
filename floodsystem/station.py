@@ -49,6 +49,15 @@ class MonitoringStation:
         else:
             #print("NONONO")
             return False
+    
+    # Task 1B
+    # Max Lyu
+    def relative_water_level(self):
+        if self.typical_range_consistent() and type(self.latest_level)==float:
+            return ((self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0]))
+        else:
+            return None # return None?
+
 
 
 def inconsistent_typical_range_stations(stations):
