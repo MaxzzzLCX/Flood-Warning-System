@@ -50,7 +50,7 @@ class MonitoringStation:
             #print("NONONO")
             return False
     
-    # Task 1B
+    # Task 2B
     # Max Lyu
     def relative_water_level(self):
         if self.typical_range_consistent() and type(self.latest_level)==float:

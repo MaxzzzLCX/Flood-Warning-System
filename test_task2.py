@@ -2,7 +2,7 @@ from floodsystem.stationdata import build_station_list
 
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.station import MonitoringStation
-from flood import stations_level_over_threshold, stations_highest_rel_level
+from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 from floodsystem.utils import sorted_by_key
 import random
 

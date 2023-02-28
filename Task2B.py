@@ -1,6 +1,6 @@
 
 from floodsystem.stationdata import build_station_list, update_water_levels
-from flood import stations_level_over_threshold
+from floodsystem.flood import stations_level_over_threshold
 from floodsystem.utils import sorted_by_key
 
 
