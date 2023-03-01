@@ -50,10 +50,10 @@ def test_task2C():
 
     assert(len(stations_over_threshold)==N)
 
-    sorted_over_thresholds = sorted_by_key(stations_over_threshold,1,reverse=True)
+    #sorted_over_thresholds = sorted_by_key(stations_over_threshold,1,reverse=True)
     temp = 99999
 
-    for test_station in sorted_over_thresholds:
+    for test_station in stations_over_threshold:
         assert test_station[1] <= temp
         temp = test_station[1]
 
