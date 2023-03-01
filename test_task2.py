@@ -54,8 +54,8 @@ def test_task2C():
     temp = 99999
 
     for test_station in stations_over_threshold:
-        assert test_station[1] <= temp
-        temp = test_station[1]
+        assert test_station.relative_water_level() <= temp
+        temp = test_station.relative_water_level()
 
 
 
