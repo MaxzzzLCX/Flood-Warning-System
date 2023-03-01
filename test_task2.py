@@ -4,7 +4,7 @@ from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.station import MonitoringStation
 from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 from floodsystem.utils import sorted_by_key
-import random
+from floodsystem.plot import plot_water_levels, plot_water_level_with_fit
 
 
 def test_task2B():
